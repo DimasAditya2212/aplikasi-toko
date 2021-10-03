@@ -1,8 +1,11 @@
 @extends('dashboard.layouts.main')
 
 @section('isibody')
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-item-center pt-3 pb-2 mb-3 ml-3 border-bottom">
-    <h1 class="h2">{{ $title }}</h1>
+    <h1 class="h2">
+        {{ $title }}
+    </h1>
 </div>
 
 @if(session()->has('success'))
@@ -12,7 +15,7 @@
 @endif
 
 <div class="table-responsive col-lg-12">
-    <a href="" class="btn btn-primary mb-3">Create new post</a>
+    <a href="" class="btn btn-primary mb-3">Tambah Data</a>
 
     <table class="table table-striped table-sm ">
         <thead>
@@ -35,13 +38,13 @@
                 <td>{{ $post->harga_beli }}</td>
                 <td>{{ $post->harga_jual }} </td>
                 <td>{{ $post->total_stok }} </td>
-                <a href="/posts?category={{ $post->category->slug }}">
-                    <td>{{ $post->category->name }} </td>
-                </a>
+                <td><a href="/posts?category={{ $post->category->slug }}" class="text-dark text-decoration-none">
+                        {{ $post->category->name }}
+                    </a></td>
                 <td>
 
-                    <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-                    <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
+                    <a href="/posts/{{ $post->id }}/edit" class="badge bg-warning"><i class="bi bi-pen"></i><span data-feather="edit"></span></a>
+
                 </td>
             </tr>
             @endforeach
@@ -51,4 +54,6 @@
         {{ $posts->links() }}
     </div>
 </div>
+
+
 @endsection

@@ -18,4 +18,10 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-Route::get('/posts', [DashboardPostController::class, 'index']);
+
+
+
+
+Route::post('/posts/create', [DashboardPostController::class, 'store']);
+
+Route::resource('/posts', DashboardPostController::class);

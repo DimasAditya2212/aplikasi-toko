@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class DashboardPostController extends Controller
@@ -15,6 +16,7 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
+
         $title = 'stok';
 
         if (request('category')) {
@@ -68,10 +70,10 @@ class DashboardPostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
     }
@@ -79,13 +81,13 @@ class DashboardPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
         return view('dashboard.posts.edit', [
-            'post' => $post,
+            "posts" => Post::Where('kode_produk', request('kode_produk')),
             'categories' => Category::all()
         ]);
     }
@@ -94,39 +96,26 @@ class DashboardPostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        $rules = [
-
-            'harga_beli' => 'required',
-            'harga_jual' => 'required',
-            'total_stok' => 'required',
-            'category_id' => 'required'
-        ];
-        if ($request->kode_produk != $post->kode_produk) {
-            $rules['kode_produk'] = 'required';
-            $rules['nama_produk'] = 'required|unique:posts';
-        }
-
-        $validatedData = $request->validate($rules);
-
-
-        Post::where('id', $post->id)
-            ->update($validatedData);
-        return redirect('/posts')->with('success', 'stock diubah');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
+    }
+
+    public function sort_stok()
+    {
     }
 }

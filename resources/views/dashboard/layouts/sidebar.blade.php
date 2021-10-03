@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Aplikasi Toko Retno</div>
     </a>
 
     <!-- Divider -->
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Kasir</span></a>
     </li>
@@ -28,8 +28,13 @@
     <ul class="nav flex-column">
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/posts">
-                <span data-feather="home"></span>
                 Stock
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/posts/create">
+                <span data-feather="file-text"></span>
+                Barang Baru
             </a>
         </li>
         <li class="nav-item">
