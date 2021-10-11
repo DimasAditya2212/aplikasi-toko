@@ -11,7 +11,7 @@
             @if(request('category'))
             <input type="hidden" name="category" value="{{ request('category') }}">
             @endif
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" name="search" value="{{ request('search') }}">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Scan" aria-label="Search" aria-describedby="basic-addon2" name="search" value="{{ request('search') }}">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>

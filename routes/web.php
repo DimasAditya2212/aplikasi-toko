@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\KasirController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,8 @@ Route::get('/', function () {
 Route::post('/posts/create', [DashboardPostController::class, 'store']);
 
 Route::resource('/posts', DashboardPostController::class);
+
+Route::resource('/kasir', KasirController::class);
+
+Route::get('ajax/request', [StudentController::class, 'ajaxRequest'])->name('ajax.request');
+Route::post('ajax/request/store', [StudentController::class, 'ajaxRequestStore'])->name('ajax.request.store');

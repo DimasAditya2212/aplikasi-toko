@@ -31,5 +31,11 @@ class Post extends Model
                 $query->where('slug', $category);
             });
         });
+
+        $query->when($filters['kode_produk'] ?? false, function ($query, $kode_produk) {
+            return $query->where(function ($query) use ($kode_produk) {
+                $query->where('kode_produk', 'like', '%' . $kode_produk . '%');
+            });
+        });
     }
 }
